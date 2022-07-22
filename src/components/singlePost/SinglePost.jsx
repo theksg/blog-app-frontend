@@ -18,7 +18,7 @@ export default function SinglePost() {
 
     useEffect(()=>{
         const getPost= async()=>{
-            const res= await axios.get('/posts/'+postID);
+            const res= await axios.get('api/posts/'+postID);
             setPost(res.data)
             console.log(post)
         }
@@ -28,7 +28,7 @@ export default function SinglePost() {
 
     const handleDelete = async () => {
         try {
-          await axios.delete(`/posts/${post._id}`, {
+          await axios.delete(`api/posts/${post._id}`, {
             data: { username: user.username },
           });
           window.location.replace("/");

@@ -43,7 +43,7 @@ export default function Settings() {
             updatedUser.photo=filename;
       
             try{
-              const res=await axios.post("/upload",data);
+              const res=await axios.post("api/upload",data);
               console.log(res);
               updatedUser.profilePic=res.data.url;
             }
@@ -52,7 +52,7 @@ export default function Settings() {
             }
           }
         try{
-            const res=await axios.put(`/users/${user._id}`,updatedUser)
+            const res=await axios.put(`api/users/${user._id}`,updatedUser)
             dispatch({type:"LOGIN_SUCCESS",payload:res.data})
             window.location.replace("/");
         }
@@ -93,7 +93,7 @@ export default function Settings() {
 
     const handleDelete = async ()=>{
         try{
-            await axios.delete(`/users/${user._id}`, {
+            await axios.delete(`api/users/${user._id}`, {
                 data: { userId: user._id },
               });
             dispatch({type:"LOGOUT"});
