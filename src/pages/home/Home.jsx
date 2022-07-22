@@ -7,6 +7,7 @@ import "./home.css";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 
+console.log(window.env.BE_URL)
 
 const Home = () =>{
     const [posts,setPosts]=useState([])
@@ -15,7 +16,7 @@ const Home = () =>{
     console.log(search)
     useEffect(()=>{
         const fetchPosts = async ()=>{
-            const res =  await axios.get("api/posts"+search)
+            const res =  await axios.get(window.env.BE_URL + "/posts"+search)
             console.log(res.data)
             setPosts(res.data)
         }
@@ -25,7 +26,7 @@ const Home = () =>{
 
     return (
         <>
-        {(window.screen.width>800 || search ==="") &&(<Header/>)}
+        {(search ==="") &&(<Header/>)}
         <a id="posts"></a>
         <div className="searchBar">
             <SearchBar/>

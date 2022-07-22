@@ -47,7 +47,7 @@ export default function Register() {
     event.preventDefault();
     dispatch({type:"LOGIN_START"})
     try{
-      const res= await axios.post("api/auth/register",{
+      const res= await axios.post(window.env.BE_URL +"/auth/register",{
         username,
         email,
         password

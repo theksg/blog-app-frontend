@@ -11,7 +11,7 @@ const ProfileCard = () =>{
 
   useEffect(()=>{
     const fetchUser= async ()=>{
-        const res =  await axios.get("api/users"+search)
+        const res =  await axios.get(window.env.BE_URL +"/users"+search)
         console.log(res.data)
         setUserProfile(res.data)
     }

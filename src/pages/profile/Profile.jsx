@@ -18,7 +18,7 @@ const Profile = () =>{
 
     useEffect(()=>{
         const fetchPosts = async ()=>{
-            const res =  await axios.get("api/posts"+search)
+            const res =  await axios.get(window.env.BE_URL +"/posts"+search)
             console.log(res.data)
             setPosts(res.data)
         }

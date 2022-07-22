@@ -44,7 +44,7 @@ export default function Login() {;
 
     try{
 
-      const res = await axios.post("api/auth/login",{
+      const res = await axios.post(window.env.BE_URL +"/auth/login",{
         username:userRef.current.value,
         password:passwordRef.current.value
       })

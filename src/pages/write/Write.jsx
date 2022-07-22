@@ -50,7 +50,7 @@ export default function Write(post) {
       newPost.photo=filename;
 
       try{
-        const res=await axios.post("api/upload",data);
+        const res=await axios.post(window.env.BE_URL +"/upload",data);
         console.log(res);
         newPost.photo=res.data.url;
       }
@@ -62,10 +62,10 @@ export default function Write(post) {
     try{
       let res;
       if(update){
-        res=await axios.put(`api/posts/${post.post._id}`,newPost)
+        res=await axios.put(window.env.BE_URL +`/posts/${post.post._id}`,newPost)
       }
       else{
-      res=await axios.post("api/posts",newPost);
+      res=await axios.post(window.env.BE_URL +"/posts",newPost);
       }
       window.location.replace("/post/"+res.data._id);
     }
