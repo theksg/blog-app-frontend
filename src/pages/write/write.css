@@ -1,0 +1,90 @@
+.write {
+    padding-top: 50px;
+    background-color: white;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.writeImg {
+    margin-left: 150px;
+    width: 70vw;
+    height: 250px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+.writeForm{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.writeFormGroupTop,.writeFormGroupBottom{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.writeIcon{
+    font-size: 35px;
+    cursor:pointer;
+}
+
+.writeInput{
+    border: 1px solid rgb(226 211 211);
+    width: 70%;
+    padding: 6px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.writeText{
+    font-size: 15px;
+}
+
+.writeTitleTF{
+    width: 100%;
+}
+
+.writeTA{
+    width: 100%;
+    padding: 10px;
+}
+
+.writeButton{
+    margin: 10px 0px;
+}
+
+
+.writeTopImg{
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin: auto auto;
+    border-radius: 5px;
+}
+
+.categoryBox{
+    width:100%
+}
+
+.css-1tm81ay{
+    width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .writeTopImg{
+        height: 250px;
+        width: 80%;
+    }
+
+    .write{
+        margin-top: 50px;
+    }
+}

@@ -1,0 +1,13 @@
+.home{
+    display: flex;
+}
+
+.searchBar{
+    height: 105px;
+}
+
+@media only screen and (max-width: 800px){
+    .searchBar , .home{
+        margin-top: 50px;
+    }
+}

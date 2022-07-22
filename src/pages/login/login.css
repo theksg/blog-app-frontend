@@ -1,0 +1,38 @@
+.loginWrapper{
+    background-image: url("../../images/janko-ferlic-sfL_QOnmy00-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.login{
+    background-color: white;
+    border-radius: 40px;
+    padding: 10px;
+    margin: 100px;
+    box-shadow: #fdfbfb 0px 7px 29px 0px;
+}
+
+
+.centered{
+    position:absolute;
+    width:100px;
+    height:100px;
+    left:50%;
+    top:50%;
+    margin-left:-50px;
+    margin-top:-50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .login{
+        margin: 10%;
+    }
+
+    .loginWrapper{
+        margin-top: 50px;
+    }
+}

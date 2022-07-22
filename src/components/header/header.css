@@ -1,0 +1,68 @@
+.header{
+    position: relative;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.header::before{
+    content: "";   
+    position: absolute;
+    background: url("../../images/janko-ferlic-sfL_QOnmy00-unsplash.jpg") no-repeat center center/cover;
+    top:0px;
+    left:0px;
+    height: 100%;
+    width:100%;
+    z-index: -1;
+    opacity: 0;
+}
+
+.headerContent{
+    
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding:  20px 100px; */
+    color: black;
+    word-wrap: break-word;
+}
+
+.h-primary{
+    font-size: 3.8rem;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.headerContent p{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.2rem;
+}
+
+.buttons{
+    margin-top:20px;
+    display: flex;
+}
+
+.topBarButton a{
+    text-decoration: none;
+    color:black;
+}
+
+@media only screen and (max-width: 800px){
+    body::before{
+        content: "";
+          
+          position: fixed;
+          background: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80") no-repeat top ;
+          top:0px;
+          left:0px;
+          height: 200%;
+          width:100%;
+          z-index: -1;
+          opacity: 0.3;
+    } 
+}
