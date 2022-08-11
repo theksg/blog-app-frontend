@@ -33,6 +33,7 @@ export default function Settings() {
         setPress(true);
         const updatedUser=inputs
         updatedUser.userId=user._id
+        let imageUploaded = false;
 
         if(file){
             const data=new FormData();
@@ -46,6 +47,7 @@ export default function Settings() {
               const res=await axios.post(window.env.BE_URL +"/upload",data);
               console.log(res);
               updatedUser.profilePic=res.data.url;
+              imageUploaded = true;
             }
             catch(error){
               console.log(error)
@@ -57,31 +59,43 @@ export default function Settings() {
             window.location.replace("/");
         }
         catch(err){
-            if('username' in err.response.data.keyPattern){
+
+            // Handling case for deleting newly uploaded image if final data submission fails
+            if(imageUploaded){
+                try{
+                    await axios.delete(window.env.BE_URL +"/file-delete", {
+                      data: { link: updatedUser.profilePic },
+                    });
+                }
+                catch(error){
+                    console.log(error);
+                }
+            }
+            if('username' in err.response?.data?.keyPattern){
                 alert(`Account for username ${err.response.data.keyValue.username} already exists`)
                 setInputs(prevState => 
                     ({ ...prevState, "username": user.username })
                 );
             }
-            else if('email' in err.response.data.keyPattern){
+            else if('email' in err.response?.data?.keyPattern){
                 alert(`Account for email ${err.response.data.keyValue.email} already exists`)
                 setInputs(prevState => 
                     ({ ...prevState, "email": user.email })
                 );
             }
-            else if('emailPattern' in err.response.data.keyPattern){
+            else if('emailPattern' in err.response?.data?.keyPattern){
                 alert(`Invalid e-mail address added`)
                 setInputs(prevState => 
                     ({ ...prevState, "email": user.email })
                 );
             }
-            else if('facebook' in err.response.data.keyPattern){
+            else if('facebook' in err.response?.data?.keyPattern){
                 alert(`Invalid url for facebook`)
                 setInputs(prevState => 
                     ({ ...prevState, "facebook": user.facebook })
                 );
             }
-            else if('linkedin' in err.response.data.keyPattern){
+            else if('linkedin' in err.response?.data?.keyPattern){
                 alert(`Invalid url for linkedin`)
                 setInputs(prevState => 
                     ({ ...prevState, "linkedin": user.linkedin })
