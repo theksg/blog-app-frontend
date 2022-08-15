@@ -29,7 +29,7 @@ const Profile = () =>{
     return (
         <>
         <ProfileCard/>
-        {posts.length>0 ? (<h3>
+        {posts.length>0 ? (<h3 className="postsHeading">
             {
                 cur_user === user.username ? (
                     <>
