@@ -30,7 +30,7 @@ const ProfileCard = () =>{
                     <div class="picture">
                       <img 
                       class="img-fluid" 
-                      src={userProfile.profilePic || "https://cdn.pixabay.com/photo/2013/03/30/00/11/user-97890_960_720.png"}/>
+                      src={userProfile.profilePic || window.env.DEFAULT_PROFILE_PIC}/>
                     </div>
                     <div class="team-content">
                       {

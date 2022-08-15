@@ -44,6 +44,6 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["BE_URL"]
+    "whitelist": ["BE_URL","DEFAULT_POST_IMG","DEFAULT_PROFILE_PIC","WRITE_IMG"]
   }
 }

@@ -132,7 +132,7 @@ export default function Settings() {
                                 <img
                                 src={URL.createObjectURL(file)}
                                 />
-                              ):(<img src={user.profilePic || "https://cdn.pixabay.com/photo/2013/03/30/00/11/user-97890_960_720.png"} alt="" />)
+                              ):(<img src={user.profilePic || window.env.DEFAULT_PROFILE_PIC} alt="" />)
                         }
                         <IconButton>
                             <label htmlFor="fileInput" className="settingsPPIcon">

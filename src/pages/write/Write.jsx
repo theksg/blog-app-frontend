@@ -78,7 +78,7 @@ export default function Write(post) {
   return (
     <div className='write'>
       
-      <img src={file?URL.createObjectURL(file):post.post.photo || ("https://www.hopkinsmedicine.org/sebin/x/e/syt-teaser-2.jpg")} alt="" className="writeTopImg" />
+      <img src={file?URL.createObjectURL(file):post.post.photo || window.env.WRITE_IMG} alt="" className="writeTopImg" />
       <form action="" className="writeForm" onSubmit={handleSubmit}>
         <div className="writeFormGroupTop">
           <label htmlFor="fileInput">

@@ -80,7 +80,7 @@ const Topbar = () => {
                             <Link className="link" to={`/profile/?username=${user.username}`}>
                             <img
                                 className="topImageIcon"
-                                src={user.profilePic || "https://cdn.pixabay.com/photo/2013/03/30/00/11/user-97890_960_720.png"}
+                                src={user.profilePic || window.env.DEFAULT_PROFILE_PIC}
                                 alt="Profile"
                             ></img></Link>
                             <i class="fa-solid fa-arrow-right-from-bracket logoutIcon topIcon" 

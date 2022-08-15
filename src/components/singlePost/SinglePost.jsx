@@ -43,7 +43,7 @@ export default function SinglePost() {
         <div className="singlePost">
             <div className="singlePostWrapper">
                 <div className="singlePostImgDiv">
-                    <img src={post.photo || "https://i.pinimg.com/736x/29/46/4a/29464aa3c5800484f4577ca0c53f8953--reading-quotes-reading-books.jpg"} 
+                    <img src={post.photo || window.env.DEFAULT_POST_IMG} 
                     alt="" className="singlePostImg" />
                 </div>
                 <h1 className="singlePostTitle">
