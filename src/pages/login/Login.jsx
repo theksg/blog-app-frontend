@@ -48,11 +48,9 @@ export default function Login() {;
         username:userRef.current.value,
         password:passwordRef.current.value
       })
-      console.log(res)
       dispatch({type:"LOGIN_SUCCESS",payload:res.data})
     }
     catch(error){
-      console.log(error);
       alert("Wrong Credentials Entered!")
       dispatch({type:"LOGIN_FAILURE",})
     }

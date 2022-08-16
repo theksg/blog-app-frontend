@@ -45,7 +45,6 @@ export default function Settings() {
       
             try{
               const res=await axios.post(window.env.BE_URL +"/upload",data);
-              console.log(res);
               updatedUser.profilePic=res.data.url;
               imageUploaded = true;
             }
@@ -114,7 +113,7 @@ export default function Settings() {
             // window.location.replace("/");
         }
         catch(error){
-            console.log(error)
+            alert("Failed to delete account. Please try again later")
         }
     }
     return (
