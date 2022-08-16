@@ -15,7 +15,7 @@ export default function Post({post}) {
         <div className="postInfo">
             <div className="postCategories">
               {
-                post.categories?.map(category=><CategoryItem category={category}/>)
+                post.categories?.map((category,i)=><CategoryItem category={category} key={i} singlePost={false}/>)
               }
             </div>
             

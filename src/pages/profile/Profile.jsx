@@ -12,14 +12,12 @@ const Profile = () =>{
 
     const {user}=useContext(Context)
     const {search} = useLocation()
-    console.log(search)
 
     const [cur_user, setCur_user] = useState("");
 
     useEffect(()=>{
         const fetchPosts = async ()=>{
             const res =  await axios.get(window.env.BE_URL +"/posts"+search)
-            console.log(res.data)
             setPosts(res.data)
         }
 

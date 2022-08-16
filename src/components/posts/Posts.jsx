@@ -6,7 +6,7 @@ export default function Posts({posts}) {
   <div className='posts'>
       {
         posts.map((cur_post)=>(
-          <Post post={cur_post}/>
+          <Post post={cur_post} key={cur_post._id}/>
         ))
       }
   </div>

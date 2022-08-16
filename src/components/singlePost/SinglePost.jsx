@@ -20,7 +20,6 @@ export default function SinglePost() {
         const getPost= async()=>{
             const res= await axios.get(window.env.BE_URL +'/posts/'+postID);
             setPost(res.data)
-            console.log(post)
         }
         getPost();
     },[postID])
@@ -68,7 +67,7 @@ export default function SinglePost() {
                 </div>
                 <div className="CategoryItems">
                    {
-                     post.categories?.map(category=><CategoryItem category={category}/>)
+                     post.categories?.map((category,i)=><CategoryItem category={category} key={i} singlePost={true}/>)
                    }
                 </div>
                 <p className="singlePostDesc">

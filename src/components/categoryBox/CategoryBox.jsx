@@ -183,7 +183,6 @@ export default function CategoryBox(props) {
     }
   });
   
-  console.log(props)
   return (
     <Root>
       <div {...getRootProps()}>

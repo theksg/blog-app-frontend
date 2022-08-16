@@ -122,7 +122,7 @@ export default function Settings() {
             <div className="settingsWrapper">
                 <div className="settingsTitle">
                     <span className="settingsTitleUpdate">Update Account</span>
-                    <span className="settingsTitleDelete" onClick={handleDelete}><i class="fa-solid fa-trash-can"></i></span>
+                    <span className="settingsTitleDelete" onClick={handleDelete}><i className="fa-solid fa-trash-can"></i></span>
                 </div>
                 <form action="" className="settingsForm">
                     <div className="settingsPP">

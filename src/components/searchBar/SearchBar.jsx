@@ -3,20 +3,20 @@ import { useState } from "react";
 
 export default function Searchbar(){
 
-    const [search, setSearch] = useState(null);
+    const [search, setSearch] = useState("");
 
     const handleSearch = ()=>{
         window.location.replace(`/?category=${search}#posts`)
     }
 
     return (
-        <div class="searchBox">
-            <input class="searchInput"type="text" name="" placeholder="Search" 
+        <div className="searchBox">
+            <input className="searchInput"type="text" name="" placeholder="Search" 
             value={search}
             onChange={event=>setSearch(event.target.value)}
             />
-            <button class="searchButton" onClick={handleSearch}>
-                <i class="material-icons">
+            <button className="searchButton" onClick={handleSearch}>
+                <i className="material-icons">
                     search
                 </i>
             </button>

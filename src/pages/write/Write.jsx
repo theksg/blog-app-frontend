@@ -29,7 +29,6 @@ export default function Write(post) {
   const [file,setFile]=useState(null);
   const {user} =useContext(Context);
   const [categories, setCategories] = useState(post.post.categories || [])
-  console.log(categories)
   const handleSubmit = async event =>{
     event.preventDefault();
     setPress(true);

@@ -45,13 +45,13 @@ const Topbar = () => {
                 <div className="topCenter">
                     <ul className="topList">
                         <li  id="ham">
-                            <i class="fa-solid fa-bars" onClick={change_css_burger_icon}></i>
+                            <i className="fa-solid fa-bars" onClick={change_css_burger_icon}></i>
                         </li>
                         <li  id="cross">
-                            <i class="fa-solid fa-xmark" onClick={change_css_cross_icon}></i>
+                            <i className="fa-solid fa-xmark" onClick={change_css_cross_icon}></i>
                         </li>
                         <li className="topIconFullScreen">
-                            <i class="fa-solid fa-bookmark"></i>
+                            <i className="fa-solid fa-bookmark"></i>
                         </li>
                         <li className="topListItem" onClick={change_css_cross_icon}>
                             <Link className="link" to="/">
@@ -83,7 +83,7 @@ const Topbar = () => {
                                 src={user.profilePic || window.env.DEFAULT_PROFILE_PIC}
                                 alt="Profile"
                             ></img></Link>
-                            <i class="fa-solid fa-arrow-right-from-bracket logoutIcon topIcon" 
+                            <i className="fa-solid fa-arrow-right-from-bracket logoutIcon topIcon" 
                             onClick={handleLogout}
                             ></i>
                         </>
