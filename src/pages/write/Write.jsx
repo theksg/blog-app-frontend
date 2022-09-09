@@ -33,29 +33,17 @@ export default function Write(post) {
     event.preventDefault();
     setPress(true);
 
-    const newPost ={
-      username:user.username,
-      title,
-      desc,
-      categories
-    }
+    const newPost = new FormData();
+    newPost.append("username",user.username);
+    newPost.append("title",title);
+    newPost.append("desc",desc);
+    newPost.append("categories",JSON.stringify(categories));
 
     if(file){
-      const data=new FormData();
       const filename=Date.now() + file.name;
-      data.append("name",filename);
-      data.append("file",file);
-      data.append("height",300);
-      newPost.photo=filename;
-
-      try{
-        const res=await axios.post(window.env.BE_URL +"/upload",data);
-        console.log(res);
-        newPost.photo=res.data.url;
-      }
-      catch(error){
-        console.log(error)
-      }
+      newPost.append("name",filename);
+      newPost.append("file",file);
+      newPost.append("height",300);
     }
 
     try{
@@ -64,7 +52,7 @@ export default function Write(post) {
         res=await axios.put(window.env.BE_URL +`/posts/${post.post._id}`,newPost)
       }
       else{
-      res=await axios.post(window.env.BE_URL +"/posts",newPost);
+        res=await axios.post(window.env.BE_URL +"/posts",newPost);
       }
       window.location.replace("/post/"+res.data._id);
     }

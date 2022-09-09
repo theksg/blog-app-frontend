@@ -31,26 +31,27 @@ export default function Settings() {
 
     const handleUpdate = async (event) =>{
         setPress(true);
-        const updatedUser=inputs
-        updatedUser.userId=user._id
-        let imageUploaded = false;
+        const updatedUser = new FormData();
+
+        for ( const key in inputs ) {
+            updatedUser.append(key, inputs[key]);
+        }
+        updatedUser.append("userId", user._id);
 
         if(file){
-            const data=new FormData();
             const filename=Date.now() + file.name;
-            data.append("name",filename);
-            data.append("file",file);
-            data.append("height",130);
-            updatedUser.photo=filename;
+            updatedUser.append("name",filename);
+            updatedUser.append("file",file);
+            updatedUser.append("height",130);
       
-            try{
-              const res=await axios.post(window.env.BE_URL +"/upload",data);
-              updatedUser.profilePic=res.data.url;
-              imageUploaded = true;
-            }
-            catch(error){
-              console.log(error)
-            }
+            // try{
+            //   const res=await axios.post(window.env.BE_URL +"/upload",updatedUser);
+            //   updatedUser.profilePic=res.data.url;
+            //   imageUploaded = true;
+            // }
+            // catch(error){
+            //   console.log(error)
+            // }
           }
         try{
             const res=await axios.put(window.env.BE_URL +`/users/${user._id}`,updatedUser)
@@ -58,18 +59,6 @@ export default function Settings() {
             window.location.replace("/");
         }
         catch(err){
-
-            // Handling case for deleting newly uploaded image if final data submission fails
-            if(imageUploaded){
-                try{
-                    await axios.delete(window.env.BE_URL +"/file-delete", {
-                      data: { link: updatedUser.profilePic },
-                    });
-                }
-                catch(error){
-                    console.log(error);
-                }
-            }
             if('username' in err.response?.data?.keyPattern){
                 alert(`Account for username ${err.response.data.keyValue.username} already exists`)
                 setInputs(prevState => 
@@ -99,6 +88,10 @@ export default function Settings() {
                 setInputs(prevState => 
                     ({ ...prevState, "linkedin": user.linkedin })
                 );
+            }
+            else{
+                alert(`Some Error occured, please try again later`);
+                setInputs(prevState => user);
             }
             setPress(false);
         }
